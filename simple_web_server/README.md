@@ -18,4 +18,6 @@ Run docker container:
 docker run -d -p 80:80 --name mynginxapp mynginxapp 
 ```
 
+To access the web server, open your browser and naviagate to localhost:80 to view your created page.
+
 
