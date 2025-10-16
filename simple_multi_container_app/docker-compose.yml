@@ -22,11 +22,11 @@ services:
 volumes:
   db_data:
 
-
+# Notes:
+# No need to use version at the begining of the compose file. The CLI infers supported features from your installed Docker/Compose so the version key is ignored.
 # This docker-compose.yml file defines two containers web and db.
 # depends_on ensures db contaienr starts first
-# .:/app mounts current directory to /app for live code updates
 # volumes: defines db_data for persistent MySQL storage.
+# .:/app mounts current directory to /app for live code updates.  The syntax .:/app maps the current directory to /app using :
 # MYSQL_DATABASE tells MySQL to automatically create a database named test_db
-# example is just a paceholder for the admit password.
-# .:/app maps the current directory to /app using :
+# In MYSQL_ROOT_PASSWORD example is just a paceholder for the admit password.

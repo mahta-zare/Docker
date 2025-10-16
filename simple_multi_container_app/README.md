@@ -1,3 +1,14 @@
+A simple Python Flask app with MySQL backend as database. 
+
+The requirements are Flask and `mysql-connector-python` because the code imports `mysql.connector` which needs pure python and no system deps.
+
+To run the container:
+
+```bash
+docker compose up --build -d
+```
+Here is a table of common services and their port number:
+
 | Port            | Service                                                   | Description                |
 | --------------- | --------------------------------------------------------- | -------------------------- |
 | **22**          | SSH                                                       | Remote login to servers    |
@@ -13,7 +24,6 @@
 | **9200**        | Elasticsearch                                             |                            |
 | **9092**        | Kafka                                                     |                            |
 | **15672**       | RabbitMQ management UI                                    |                            |
-
 
 
 There are convention-based paths inside containers for popular services, ususally matching their default Linux installation paths.
