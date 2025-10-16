@@ -1,0 +1,32 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5001:5000"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: test_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+
+
+# This docker-compose.yml file defines two containers web and db.
+# depends_on ensures db contaienr starts first
+# .:/app mounts current directory to /app for live code updates
+# volumes: defines db_data for persistent MySQL storage.
+# MYSQL_DATABASE tells MySQL to automatically create a database named test_db
+# example is just a paceholder for the admit password.
+# .:/app maps the current directory to /app using :
