@@ -30,3 +30,4 @@ volumes:
 # .:/app mounts current directory to /app for live code updates.  The syntax .:/app maps the current directory to /app using :
 # MYSQL_DATABASE tells MySQL to automatically create a database named test_db
 # In MYSQL_ROOT_PASSWORD example is just a paceholder for the admit password.
+# mysql:8.0 is available for Apple Silicon (arm64). mysql:5.7 us only available for linux (amd64)
