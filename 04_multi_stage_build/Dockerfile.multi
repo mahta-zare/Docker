@@ -1,0 +1,31 @@
+# Stage 1: build
+FROM node:14 AS build-stage
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . ./
+
+
+# Stage 2: RUN
+FROM node:14-slim
+
+WORKDIR /app
+
+COPY --from=build-stage /app .
+
+EXPOSE 3000
+
+ENV NODE_ENV=production
+
+CMD ["node", "server.js"]
+
+
+# as <name> gives a name to the build stage and this name can be used to refer to that stage in later stages.
+# npm is a Node.js command that installs all the dependencies in the project's package.json file.
+# npm is a package manager for the JavaScript programming language.
+# Node.js can have several modes when it's running. These usually are: development,test, and production
+# Setting it as production tells the container that run it as if it's deployed, optimizing performance and behavior.
